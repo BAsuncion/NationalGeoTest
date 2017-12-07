@@ -3,9 +3,9 @@
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
+#include <unistd.h> // Lib for email
 
-extern char **environ;
+extern char **environ; // Required for email
 
 typedef struct _question {
 	char question[300];
@@ -126,6 +126,7 @@ void Review (Nat_Q*ptr)
 		ptr = ptr->next;
 	}
 	printf("Your score is %d out of 10\n",point);
+// Next 4 lines of code generate the email and sends it off to the user.
 	printf("Please Enter an email address:\n");
 	scanf("%s", &mailAddress);
 	snprintf(body,100," Your score in the National Geographic Bee is %d/10.",point);
